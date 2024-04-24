@@ -1,0 +1,354 @@
+{"quizQuestions" : [
+    {
+       "question": "Which of the following is a macronutrient?",
+        "options": ["Vitamin C", "Iron", "Protein", "Calcium"],
+        "answer": "Protein"
+    },
+    {
+       "question": "Which nutrient is the body's primary source of energy?",
+        "options": ["Carbohydrates", "Fiber", "Fats", "Vitamins"],
+        "answer": "Carbohydrates"
+    },
+    {
+       "question": "What is the main function of dietary fiber?",
+        "options": ["Energy production", "Building and repairing body tissues", "Regulating bowel movements", "Protecting against heart disease"],
+        "answer": "Regulating bowel movements"
+    },
+    {
+       "question": "Which vitamin is known as the 'sunshine vitamin'?",
+        "options": ["Vitamin C", "Vitamin D", "Vitamin A", "Vitamin E"],
+        "answer": "Vitamin D"
+    },
+    {
+       "question": "Which nutrient is essential for the formation and maintenance of healthy bones and teeth?",
+        "options": ["Iron", "Zinc", "Calcium", "Potassium"],
+        "answer": "Calcium"
+    },
+    {
+       "question": "Which of the following is a good source of omega-3 fatty acids?",
+        "options": ["Avocado", "Olive oil", "Salmon", "Almonds"],
+        "answer": "Salmon"
+    },
+    {
+       "question": "What is the main function of antioxidants in the body?",
+        "options": ["Boosting immune function", "Promoting digestion", "Preventing cellular damage", "Enhancing cognitive function"],
+        "answer": "Preventing cellular damage"
+    },
+    {
+       "question": "Which nutrient is important for the production and maintenance of healthy red blood cells?",
+        "options": ["Vitamin B12", "Vitamin K", "Vitamin E", "Vitamin A"],
+        "answer": "Vitamin B12"
+    },
+    {
+       "question": "Which of the following is a good source of vitamin C?",
+        "options": ["Spinach", "Oranges", "Eggs", "Chicken breast"],
+        "answer": "Oranges"
+    },
+    {
+       "question": "What is the recommended daily intake of water for adults?",
+        "options": ["1 liter", "2 liters", "3 liters", "4 liters"],
+        "answer": "2 liters"
+    },
+    {
+       "question": "Which of the following is a micronutrient?",
+        "options": ["Protein", "Fiber", "Iron", "Carbohydrates"],
+        "answer": "Iron"
+    },
+    {
+       "question": "Which nutrient is important for healthy vision?",
+        "options": ["Vitamin D", "Vitamin C", "Vitamin A", "Vitamin E"],
+        "answer": "Vitamin A"
+    },
+    {
+       "question": "What is the main function of carbohydrates in the body?",
+        "options": ["Building and repairing body tissues", "Energy production", "Enhancing immune function", "Regulating hormone levels"],
+        "answer": "Energy production"
+    },
+    {
+       "question": "Which of the following is a good source of dietary iron?",
+        "options": ["Broccoli", "Whole grains", "Red meat", "Citrus fruits"],
+        "answer": "Red meat"
+    },
+    {
+       "question": "Which nutrient is essential for proper brain function and cognitive development?",
+        "options": ["Calcium", "Fiber", "Omega-3 fatty acids", "Vitamin C"],
+        "answer": "Omega-3 fatty acids"
+    },
+    {
+       "question": "Which of the following is a good source of vitamin K?",
+        "options": ["Carrots", "Milk", "Leafy green vegetables", "Nuts and seeds"],
+        "answer": "Leafy green vegetables"
+    },
+    {
+       "question": "What is the main function of proteins in the body?",
+        "options": ["Providing energy", "Building and repairing body tissues", "Regulating blood sugar levels", "Enhancing cognitive function"],
+        "answer": "Building and repairing body tissues"
+    },
+    {
+       "question": "Which nutrient is important for maintaining healthy skin, hair, and nails?",
+        "options": ["Vitamin B12", "Vitamin E", "Vitamin K", "Vitamin D"],
+        "answer": "Vitamin E"
+    },
+    {
+       "question": "Which of the following is a good source of dietary fiber?",
+        "options": ["White bread", "White rice", "Oatmeal", "Sugary cereals"],
+        "answer": "Oatmeal"
+    },
+    {
+       "question": "What is the main function of potassium in the body?",
+        "options": ["Regulating fluid balance", "Enhancing muscle function", "Promoting bone health", "Boosting immune function"],
+        "answer": "Regulating fluid balance"
+    },
+    {
+       "question": "Which nutrient is important for the production of collagen and wound healing?",
+        "options": ["Vitamin C", "Vitamin B12", "Vitamin A", "Vitamin K"],
+        "answer": "Vitamin C"
+    },
+    {
+       "question": "What is the main function of calcium in the body?",
+        "options": ["Energy production", "Regulating blood pressure", "Building strong bones and teeth", "Enhancing cognitive function"],
+        "answer": "Building strong bones and teeth"
+    },
+    {
+       "question": "Which of the following is a good source of healthy fats?",
+        "options": ["Butter", "Processed snacks", "Avocado", "Sugary beverages"],
+        "answer": "Avocado"
+    },
+    {
+       "question": "What is the main function of vitamin E in the body?",
+        "options": ["Enhancing vision", "Promoting digestion", "Protecting against oxidative damage", "Regulating blood sugar levels"],
+        "answer": "Protecting against oxidative damage"
+    },
+    {
+       "question": "Which nutrient is important for the proper functioning of the nervous system?",
+        "options": ["Vitamin B12", "Vitamin C", "Vitamin A", "Vitamin K"],
+        "answer": "Vitamin B12"
+    },
+    {
+       "question": "What is the main function of zinc in the body?",
+        "options": ["Boosting immune function", "Enhancing muscle growth", "Promoting healthy digestion", "Regulating blood pressure"],
+        "answer": "Boosting immune function"
+    },
+    {
+       "question": "Which of the following is a good source of dietary fiber?",
+        "options": ["Processed meats", "White pasta", "Lentils", "Sugary desserts"],
+        "answer": "Lentils"
+    },
+    {
+       "question": "What is the main function of vitamin B6 in the body?",
+        "options": ["Enhancing cognitive function", "Regulating blood sugar levels", "Promoting healthy skin", "Supporting the production of red blood cells"],
+        "answer": "Supporting the production of red blood cells"
+    },
+    {
+       "question": "Which nutrient is important for proper nerve function and muscle contractions?",
+        "options": ["Sodium", "Calcium", "Vitamin D", "Vitamin E"],
+        "answer": "Calcium"
+    },
+   
+    {
+       "question": "What is the main function of folate (vitamin B9) in the body?",
+        "options": ["Enhancing vision", "Regulating blood pressure", "Supporting cell growth and division", "Boosting immune function"],
+        "answer": "Supporting cell growth and division"
+    },
+    {
+       "question": "What is the main function of sodium in the body?",
+        "options": ["Regulating fluid balance", "Enhancing muscle function", "Promoting bone health", "Boosting immune function"],
+        "answer": "Regulating fluid balance"
+    },
+    {
+       "question": "Which nutrient is important for the absorption of calcium?",
+        "options": ["Vitamin D", "Vitamin K", "Vitamin A", "Vitamin E"],
+        "answer": "Vitamin D"
+    },
+    {
+       "question": "Which of the following is a good source of vitamin B3 (niacin)?",
+        "options": ["Bananas", "Dairy products", "Seafood", "Nuts"],
+        "answer": "Seafood"
+    },
+    {
+       "question": "What is the main function of magnesium in the body?",
+        "options": ["Enhancing cognitive function", "Regulating blood sugar levels", "Promoting healthy bones", "Supporting muscle function"],
+        "answer": "Supporting muscle function"
+    },
+    {
+       "question": "Which nutrient is important for the production of thyroid hormones?",
+        "options": ["Iodine", "Fluoride", "Selenium", "Chromium"],
+        "answer": "Iodine"
+    },
+    {
+       "question": "What is the main function of phosphorus in the body?",
+        "options": ["Building strong bones and teeth", "Regulating blood pressure", "Enhancing cognitive function", "Promoting digestion"],
+        "answer": "Building strong bones and teeth"
+    },
+    {
+       "question": "Which of the following is a good source of vitamin B2 (riboflavin)?",
+        "options": ["Mushrooms", "Citrus fruits", "Eggs", "Leafy green vegetables"],
+        "answer": "Leafy green vegetables"
+    },
+    {
+       "question": "What is the main function of selenium in the body?",
+        "options": ["Supporting thyroid function", "Enhancing muscle growth", "Promoting healthy skin", "Regulating blood sugar levels"],
+        "answer": "Supporting thyroid function"
+    },
+    {
+       "question": "Which nutrient is important for the synthesis of collagen?",
+        "options": ["Vitamin C", "Vitamin D", "Vitamin E", "Vitamin K"],
+        "answer": "Vitamin C"
+    },
+    {
+        "question": "What is the protein food found in milk?",
+         "options": ["Casein", "Colostrum", "Amino Acid", "Iodine"],
+         "answer": "Casein"
+     },
+     [
+        {
+            "question": "True or false? Half a can of baked beans has more fibre than an apple",
+            "options": ["True", "False"],
+            "answer": "True"
+        },
+        {
+            "question": "Which of the following is considered a starchy vegetable?",
+            "options": ["Broccoli", "Capsicum", "Corn", "Spinach"],
+            "answer": "Corn"
+        },
+        {
+            "question": "What’s the best way to get enough vitamin D for healthy bones?",
+            "options": ["Outdoor activity with some skin exposed to the sun", "Eating fatty fish", "Consuming fortified foods", "All of the above"],
+            "answer": "Outdoor activity with some skin exposed to the sun"
+        },
+        {
+            "question": "Packaged foods are the main source of unhealthy sodium in our diets. Which is the best guide as an upper limit to look for?",
+            "options": ["1000mg per serve", "600mg per serve", "100mg per serve", "500mg per serve"],
+            "answer": "600mg per serve"
+        },
+        {
+            "question": "True or false? A teaspoon of sugar has more kilojoules than a teaspoon of honey",
+            "options": ["True", "False"],
+            "answer": "False"
+        },
+        {
+            "question": "Which bread has a lower glycaemic index (GI)?",
+            "options": ["Sourdough", "Wholemeal"],
+            "answer": "Sourdough"
+        },
+        {
+            "question": "A good guide to a serve of red meat is…?",
+            "options": ["Your hand", "1/2 your plate", "Your palm"],
+            "answer": "Your palm"
+        },
+        {
+            "question": "Which nutrient is the most filling?",
+            "options": ["Fat", "Carbohydrate", "Protein"],
+            "answer": "Protein"
+        },
+        {
+            "question": "Which milk has the most protein per glass?",
+            "options": ["Almond milk", "Trim milk", "Soy milk", "Standard (blue) milk"],
+            "answer": "Trim milk"
+        },
+        {
+            "question": "What is a healthy portion of nuts?",
+            "options": ["10g", "30g", "50g"],
+            "answer": "30g"
+        },
+        {
+            "question": "Which of the following foods are gluten free?",
+            "options": ["Potato chips", "Quinoa", "Milk chocolate", "Brown rice", "Glucose syrup"],
+            "answer": "They are all (usually) gluten free!"
+        },
+        {
+            "question": "True or false? Coconut oil is better for you than olive oil",
+            "options": ["True", "False"],
+            "answer": "False"
+        }
+    ]
+    
+    
+    ],
+    "personalQuizQuestions": 
+        [
+            {
+                "question": "Do you include a variety of vegetables and fruits in your daily diet?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you prefer whole-grain bread, pasta, and cereal over refined grain products?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you consciously choose foods and drinks that are low in calories and added sugar?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you rarely (or never) consume red meat or processed meat like bacon, hot dogs, and sausage?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you limit your consumption of high-calorie baked goods such as pies, cakes, cookies, sweet rolls, and doughnuts?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you seldom add butter, margarine, oil, sour cream, or mayonnaise to foods when cooking or at the table?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you rarely consume fried foods?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you refrain from consuming alcohol or only drink it occasionally?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you drink an adequate amount of water daily?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you make an effort to eat a balanced diet that includes a variety of food groups?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you avoid or limit your intake of sugary beverages like soda, sweetened tea, and energy drinks?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you prioritize consuming lean protein sources such as poultry, fish, tofu, and legumes?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you opt for healthy cooking methods such as grilling, baking, steaming, or broiling rather than frying?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you read food labels and pay attention to serving sizes and nutritional content?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you eat slowly and mindfully, paying attention to hunger and fullness cues?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            },
+            {
+                "question": "Do you avoid eating late at night or close to bedtime?",
+                "options": ["Yes", "No"],
+                "answer": "Yes"
+            }
+        ]
+        
+    }
+
+    
