@@ -1,6 +1,6 @@
 <script>
-  export let onClose; // Пропс для отслеживания видимости модального окна
-  export let fullRecipe; // Пропс для передачи информации
+  export let onClose; 
+  export let fullRecipe; 
   let [servings, readyInMinutes, ingredients, instructions] = fullRecipe;
 
   function handleOverlayClick(event) {
@@ -13,7 +13,7 @@
 
 <div class="modal-overlay modal-container cursor-default" on:click={handleOverlayClick}>
   <div class="modal bg-mainBeige overflow-auto max-h-screen">
-    <!-- Отображаем servings и readyInMinutes -->
+   
     <div class="flex flex-row">
       <img
         src="..\src\assets\icons\clock.svg"
@@ -31,7 +31,7 @@
       <h2 class="text-m sm:text-l">Ready in {readyInMinutes} minutes</h2>
     </div>
 
-    <!-- Отображаем ингредиенты -->
+ 
     <h2 class="text-m sm:text-l">Ingredients</h2>
     <ul class="text-s font-opensans">
       {#each ingredients as ingredient}
@@ -39,7 +39,7 @@
       {/each}
     </ul>
 
-    <!-- Отображаем инструкции -->
+
     <h2 class="text-m sm:text-l">Instructions</h2>
     <ul class="text-s font-opensans">
       {@html instructions}
