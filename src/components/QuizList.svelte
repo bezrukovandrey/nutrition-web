@@ -3,19 +3,18 @@
   import { goto } from "$app/navigation";
   import { quizResults } from "../store.js";
 
-  // Получаем результаты квизов из глобального состояния
+  
   import { get } from "svelte/store";
 
-  // Получаем результаты квизов из глобального состояния
+ 
   let results = get(quizResults);
 
-  // Обновляем результаты при монтировании компонента
+  
   onMount(() => {
     results = get(quizResults);
     console.log(results);
   });
 
-  // Не забудьте отписаться от подписки при размонтировании компонента
 </script>
 
 <main class="flex flex-col justify-center px-8 sm:px-16 py-20 bg-mainBeige">
