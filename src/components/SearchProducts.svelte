@@ -71,21 +71,21 @@
     sort,
     sortDirection
   ) {
-    // Формируем URL для запроса
+    
     const intolerancesString =
       intolerances.length > 0 ? intolerances.join(",") : "";
 
     const url = `${baseUrl}/food/ingredients/search?number=100&query=${query}&minProteinPercent=${minProteinPercent}&maxProteinPercent=${maxProteinPercent}&minFatPercent=${minFatPercent}&maxFatPercent=${maxFatPercent}&minCarbsPercent=${minCarbsPercent}&maxCarbsPercent=${maxCarbsPercent}&intolerances=${intolerancesString}&sort=${sort}&sortDirection=${sortDirection}&apiKey=${apiKey}`;
 
     try {
-      // Выполняем запрос
+     
       const response = await fetch(url);
       const data = await response.json();
-      // Обрабатываем полученные данные
+     
       searchResultsData.set(data);
       const event = new CustomEvent("searchResultsUpdated", { detail: data });
       window.dispatchEvent(event);
-      console.log(data); // Выводим данные в консоль (можете изменить на свою обработку)
+      console.log(data); 
       console.log("url:", url);
       if (data.results.length === 0) {
         alert(
@@ -106,7 +106,6 @@
     <div
       class="flex gap-4 flex-col sm:flex-row sm:gap-0 sm:mx-16 items-center relative"
     >
-      <!-- Добавлен класс "relative" -->
       <article class="flex flex-col w-full sm:w-1/2 sm:ml-0">
         <header
           class="flex flex-col grow text-black sm:max-w-full text-center sm:text-left"
@@ -146,7 +145,6 @@
               class="modal"
               style={showModal ? "display: block" : "display: none"}
             >
-              <!-- Изменено стилирование для модального окна -->
               <div
                 class="modal-content absolute left-0 top-full w-full bg-white text-darkGreen px-4 py-4 border min-w-[120px] border-black border-solid font-opensans text-xs sm:text-s"
               >
@@ -209,11 +207,11 @@
                 <div id="proteinRange" class="mb-4 mx-4 mt-12"></div>
                 <div class="mb-4">Fat percentage</div>
                 <div id="fatRange" class="mb-4 mx-4 mt-12">
-                  <!-- Добавьте сюда ползунок для белка -->
+              
                 </div>
                 <div class="mb-4">Carbs percentage</div>
                 <div id="carbsRange" class="mb-4 mx-4 mt-12">
-                  <!-- Добавьте сюда ползунок для белка -->
+                 
                 </div>
               </div>
             </div>
@@ -245,6 +243,6 @@
 
 <style>
   .active-arrow {
-    border: 2px solid black; /* Черная рамка для активной стрелки */
+    border: 2px solid black; 
   }
 </style>
