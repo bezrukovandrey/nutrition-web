@@ -16,7 +16,7 @@
   const userData = $userDataStore;
   const ratio = userData && typeof userData.totalCalories === 'number' && userData.totalCalories !== 0 ? userData.totalCalories / 2000 : 1;
   const productInfo = writable(null);
-  const defaultAmount = writable(100); // Значение по умолчанию для amount
+  const defaultAmount = writable(100); 
   const defaultUnit = writable("g");
 
   let nutritionScore;
@@ -136,25 +136,25 @@
     ];
     const requiredOtherNutrients = ["Caffeine", "Sugar", "Alcohol", "Fiber"];
     nutrients.forEach((nutrient) => {
-      // Проверяем, является ли текущий нутриент витамином
+      
       if (requiredVitamins.includes(nutrient.name)) {
-        // Добавляем витамин в массив vitamins
+       
 
         vitamins.push(nutrient);
       }
-      // Проверяем, является ли текущий нутриент минералом
+      
       else if (requiredMinerals.includes(nutrient.name)) {
-        // Добавляем минерал в массив minerals
+        
 
         minerals.push(nutrient);
       } else if (requiredOtherNutrients.includes(nutrient.name)) {
-        // Добавляем минерал в массив minerals
+        
 
         otherNutrients.push(nutrient);
       }
     });
     vitamins.sort((a, b) => {
-      // Сравниваем имена витаминов
+      
       if (a.name < b.name) {
         return -1;
       }
@@ -189,14 +189,14 @@
       (meal) => meal.id === $productInfo.id
     );
 
-    // Если блюдо уже в избранном, ничего не делаем
+    
     if (isAlreadyInFavorites) {
       toast.push('Product is already in favorites!', {
       theme: { '--toastBackground': '#D52A25', '--toastColor': '#FFF' }
     });
       return;
     }
-    // Добавление блюда в глобальное хранилище избранных блюд
+    
     favoriteProducts.update((products) => {
       
       return [...products, $productInfo];
@@ -207,8 +207,8 @@
     });
   };
 
-  // Создаем переменную состояния для отслеживания текущего режима отображения
-  const viewMode = writable("percent"); // Изначально отображаем проценты
+  
+  const viewMode = writable("percent");
 
   let pieChartContainer;
   let barChartContainer;
@@ -216,7 +216,7 @@
   let barChart;
   let initialized = false;
 
-  // Sample data for proteinPercentage, carbsPercentage, and fatPercentage
+ 
 
   const drawPieChart = () => {
     let data = new google.visualization.DataTable();
@@ -241,9 +241,9 @@
       legend: "none",
 
       slices: {
-        0: { color: "rgb(39,103,85)" }, // Цвет сектора для Protein
-        1: { color: "rgb(83,165,174)" }, // Цвет сектора для Carbs
-        2: { color: "rgb(17,26,20)" }, // Цвет сектора для Fat
+        0: { color: "rgb(39,103,85)" }, 
+        1: { color: "rgb(83,165,174)" }, 
+        2: { color: "rgb(17,26,20)" }, 
       },
       backgroundColor: "rgb(228,224,210)",
       pieSliceText: "percentage",
@@ -286,7 +286,7 @@
         trigger: "hover",
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
           bold: true,
         },
       },
@@ -296,13 +296,13 @@
         minValue: 0,
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
         },
       },
       hAxis: {
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
           bold: true,
         },
       },
@@ -314,7 +314,7 @@
 
   const initializeCharts = () => {
     if (typeof google === "undefined" || typeof google.charts === "undefined") {
-      // Если библиотека Google Charts не загружена, ждем 100 миллисекунд и пытаемся инициализировать графики снова
+      
       setTimeout(initializeCharts, 100);
       return;
     }
@@ -329,9 +329,9 @@
   onMount(() => {
     initializeCharts();
     const urlParams = new URLSearchParams(window.location.search);
-    const amount = urlParams.get("amount") || 100; // Если amount не задан в URL, используем значение по умолчанию
+    const amount = urlParams.get("amount") || 100; 
     const unit = urlParams.get("unit") || "g";
-    // Если unit не задан в URL, используем значение по умолчанию
+    
     $defaultAmount = amount;
     $defaultUnit = unit;
     getProductInfo(productId);
@@ -579,7 +579,7 @@
                 <div
                   class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                 >
-                  <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                  
                   {#if $viewMode === "percent"}
                     <div
                       class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
@@ -621,7 +621,7 @@
                 <div
                   class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                 >
-                  <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                  
                   {#if $viewMode === "percent"}
                     <div
                       class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
@@ -663,7 +663,7 @@
                 <div
                   class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                 >
-                  <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                  
                   {#if $viewMode === "percent"}
                     <div class="text-xl sm:text-xxl leading-10 text-black">
                       {percentOfDailyNeeds.toFixed(0)}%
