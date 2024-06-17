@@ -21,9 +21,9 @@
       userAnswers.push(selectedAnswer);
 
       selectedAnswer = null;
-      // Проверяем, что есть еще вопросы для текущего quizId
+      
       if (currentQuestionIndex + 1 < maxQuestionIndex) {
-        currentQuestionIndex++; // Переходим к следующему вопросу
+        currentQuestionIndex++; 
       } else {
         showResultsButton = true;
       }
@@ -35,34 +35,34 @@
   function showResults() {
     let correctAnswersCount = 0;
 
-    // Проходим по каждому вопросу в структуре JSON
+    
     questions.forEach((question) => {
-      // Получаем правильный ответ для текущего вопроса
+      
       const correctAnswer = question.answer;
 
-      // Получаем индекс текущего вопроса в массиве userAnswers
+      
       const questionIndex = questions.indexOf(question);
 
-      // Получаем выбранный пользователем ответ для текущего вопроса
+     
       const userAnswer = userAnswers[questionIndex];
 
-      // Сравниваем выбранный пользователем ответ с правильным ответом
+      
       if (userAnswer === correctAnswer) {
-        // Если ответы совпадают, увеличиваем счетчик правильных ответов
+        
         correctAnswersCount++;
       }
       console.log(correctAnswersCount);
     });
 
-    // Обновляем счет пользователя с количеством правильных ответов
+  
     updateScore(correctAnswersCount);
     console.log(correctAnswersCount);
-    // Переходим на страницу с результатами
+   
     goto(`/quiz/${quizId}/results`);
   }
 
   onMount(() => {
-    // Инициализируем список вопросов при загрузке компонента
+    
     questions = quizData.quizQuestions.slice(
       currentQuestionIndex,
       maxQuestionIndex
