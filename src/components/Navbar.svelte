@@ -14,10 +14,10 @@
     currentPath = location.pathname;
   });
 
-  // Создаем хранилище для отслеживания видимости мобильного меню
+
   export const mobileMenuVisible = writable(false);
 
-  // Функция для переключения видимости мобильного меню
+ 
   const toggleMobileMenu = () => {
     mobileMenuVisible.update((value) => !value);
   };
@@ -37,7 +37,7 @@
     >
       <div class="text-l font-libreBodoni">wisenourish</div>
     </a>
-    <!-- Кнопка для открытия мобильного меню -->
+   
     <div class="lg:hidden">
       <button on:click={toggleMobileMenu}>
         <img
@@ -47,7 +47,7 @@
         />
       </button>
     </div>
-    <!-- Навигация для десктопа -->
+  
     <div class="hidden lg:flex gap-6 items-center">
       <a
         href="/profile"
@@ -58,7 +58,7 @@
         on:click={() => switchPage("/profile")}>profile</a
       >
       <a href="" class="relative" on:click={toggleSearchSubMenu}>
-        <!-- Добавляем обработчик для открытия/закрытия подменю -->
+        
         <span
           class="text-m font-bitter hover:text-darkGreen {currentPath ===
           ('/search/meals' || '/search/products')
@@ -69,7 +69,7 @@
           <div
             class="absolute top-full left-0 bg-mainGreen mt-1 p-2 rounded shadow-lg z-10"
           >
-            <!-- Ссылки для "Meals" и "Products" -->
+            
             <a
               href="/search/meals"
               class=" text-m font-bitter hover:text-darkGreen py-1">meals</a
@@ -115,7 +115,7 @@
     </div>
   </nav>
 
-  <!-- Мобильное меню -->
+ 
   {#if $mobileMenuVisible}
     <div class="lg:hidden">
       <div
