@@ -3,36 +3,36 @@
 
   import { goto } from "$app/navigation";
 
-  // Данные поисковой выдачи
+  
   let searchResults = [];
-  const pageSize = 12; // Количество элементов на странице
-  let currentPage = 0; // Текущая страница
+  const pageSize = 12; 
+  let currentPage = 0; 
 
-  // Вычисляемое свойство для разделения результатов на страницы
+ 
   $: paginatedResults = searchResults.slice(
     currentPage * pageSize,
     (currentPage + 1) * pageSize
   );
 
-  // Обработчик для переключения страниц вперед
+  
   function nextPage() {
     if ((currentPage + 1) * pageSize < searchResults.length) {
       currentPage++;
     }
   }
 
-  // Обработчик для переключения страниц назад
+
   function prevPage() {
     if (currentPage > 0) {
       currentPage--;
     }
   }
 
-  // Создаем массив для точек внизу компонента
+  
   $: totalPages = Math.ceil(searchResults.length / pageSize);
   $: pages = Array.from({ length: totalPages }, (_, i) => i);
 
-  // Обработчик для переключения на конкретную страницу
+
   function goToPage(index) {
     currentPage = index;
   }
@@ -58,10 +58,10 @@
         imageType: result.imageType,
         name: result.name,
       }));
-      // Обработка полученных результатов
+      
     });
 
-    // Удаляем слушатель событий при размонтировании компонента
+  
     return () => {
       window.removeEventListener("keydown", handleArrowKeys);
     };
@@ -85,7 +85,7 @@
      
       {#each paginatedResults as result}
         <figure class="flex flex-col w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-          <!-- Отображение изображения и названия результата -->
+          
           <img
             src={result.image.includes("recipes")
               ? `https://img.spoonacular.com/recipes/${result.id}-636x393.${result.imageType}`
@@ -98,7 +98,7 @@
           >
             {result.image.includes("recipes") ? result.title : result.name}
         </div>
-          <!-- Кнопка "Details" -->
+         
           <button
             class="self-center px-6 py-3 text-sm sm:text-m bg-darkGreen hover:bg-mainGreen border border-darkGreen border-solid text-white cursor-pointer mt-4"
             on:click={() =>
@@ -130,9 +130,9 @@
         {/each}
       </nav>
 
-      <!-- Кнопки для переключения страниц -->
+     
       <div class="flex gap-4">
-        <!-- Кнопка "Previous" -->
+        
         <button
           class="flex justify-center items-center p-2 border border-black border-solid rounded-[50px] bg-darkGreen hover:bg-mainGreen"
           tabindex="0"
@@ -146,7 +146,6 @@
           />
         </button>
 
-        <!-- Кнопка "Next" -->
         <button
           class="flex justify-center items-center p-2 border border-black border-solid rounded-[50px] bg-darkGreen hover:bg-mainGreen"
           tabindex="0"
