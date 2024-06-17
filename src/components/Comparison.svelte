@@ -13,8 +13,8 @@
   let mealInfo1 = writable({});
   let mealInfo2 = writable({});
 
-  // Создаем переменную состояния для отслеживания текущего режима отображения
-  const viewMode = writable("percent"); // Изначально отображаем проценты
+  
+  const viewMode = writable("percent"); 
   const userData = $userDataStore;
   const ratio = userData && typeof userData.totalCalories === 'number' && userData.totalCalories !== 0 ? userData.totalCalories / 2000 : 1;
 
@@ -28,7 +28,7 @@
   let barChart2;
   let initialized = false;
 
-  // Sample data for protein, carbs, and fat
+  
 
   const barChartData1 = [
     ["Nutrient", "Percentage", { role: "style" }],
@@ -48,16 +48,16 @@
     barChartData1[2][1] = parseFloat($mealInfo1.carbsOfDailyNeeds.toFixed(0));
     barChartData1[3][1] = parseFloat($mealInfo1.fatOfDailyNeeds.toFixed(0));
 
-    drawBarChart1(); // Перерисовка первой столбчатой диаграммы
+    drawBarChart1(); 
   }
 
-  // Функция для обновления данных второй столбчатой диаграммы
+  
   function updateBarChartData2() {
     barChartData2[1][1] = parseFloat($mealInfo2.proteinOfDailyNeeds.toFixed(0));
     barChartData2[2][1] = parseFloat($mealInfo2.carbsOfDailyNeeds.toFixed(0));
     barChartData2[3][1] = parseFloat($mealInfo2.fatOfDailyNeeds.toFixed(0));
 
-    drawBarChart2(); // Перерисовка второй столбчатой диаграммы
+    drawBarChart2();
   }
   const drawPieChart1 = () => {
     let data = new google.visualization.DataTable();
@@ -82,9 +82,9 @@
       legend: "none",
 
       slices: {
-        0: { color: "rgb(39,103,85)" }, // Цвет сектора для Protein
-        1: { color: "rgb(83,165,174)" }, // Цвет сектора для Carbs
-        2: { color: "rgb(17,26,20)" }, // Цвет сектора для Fat
+        0: { color: "rgb(39,103,85)" }, 
+        1: { color: "rgb(83,165,174)" }, 
+        2: { color: "rgb(17,26,20)" }, 
       },
       backgroundColor: "rgb(228,224,210)",
       pieSliceText: "percentage",
@@ -175,7 +175,7 @@
         trigger: "hover",
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
           bold: true,
         },
       },
@@ -185,13 +185,13 @@
         minValue: 0,
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
         },
       },
       hAxis: {
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
           bold: true,
         },
       },
@@ -221,7 +221,7 @@
         trigger: "hover",
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
           bold: true,
         },
       },
@@ -231,13 +231,13 @@
         minValue: 0,
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
         },
       },
       hAxis: {
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
           bold: true,
         },
       },
@@ -261,9 +261,7 @@
   };
 
   function goBack() {
-    // Очистить состояние selectedMeals перед переходом на другую страницу
     selectedMeals.set([]);
-    // Перейти на другую страницу
     goto("/search/meals");
   }
 
@@ -842,7 +840,6 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
                     {#if $viewMode === "percent"}
                       <div
                         class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
@@ -892,7 +889,6 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
                     {#if $viewMode === "percent"}
                       <div
                         class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
@@ -931,7 +927,6 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
                     {#if $viewMode === "percent"}
                       <div
                         class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
@@ -981,7 +976,6 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
                     {#if $viewMode === "percent"}
                       <div class="text-xl sm:text-xxl leading-10 text-black">
                         {percentOfDailyNeeds.toFixed(0)}%
@@ -1011,7 +1005,6 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
                     {#if $viewMode === "percent"}
                       <div class="text-xl sm:text-xxl leading-10 text-black">
                         {percentOfDailyNeeds.toFixed(0)}%
