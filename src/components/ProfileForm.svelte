@@ -1,10 +1,10 @@
 <script>
-  // Обработчик события submit для формы
+ 
   import { onMount } from "svelte";
   import { userDataStore } from "../store.js";
   import { goto } from "$app/navigation";
 
-  let productInputs = []; // Массив для хранения полей ввода продуктов
+  let productInputs = [];
 
   onMount(() => {
     const addProductButton = document.querySelector(".add-product-btn");
@@ -39,9 +39,8 @@
     });
   });
   function handleSubmit(event) {
-    event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+    event.preventDefault(); 
 
-    // Получаем значения полей формы
     const dob = document.getElementById("dob").value;
     const gender = document.getElementById("gender").value;
     const lifestyle = document.getElementById("lifestyle").value;
@@ -50,7 +49,7 @@
     const height = document.getElementById("height").value;
     const weight = document.getElementById("weight").value;
 
-    // Создаем объект с данными пользователя
+    
     const userData = {
       dob,
       gender,
@@ -62,13 +61,13 @@
     };
 
     function countCalories(userData) {
-      // Получаем текущую дату
+      
       const currentDate = new Date();
-      // Преобразуем введенную дату рождения в объект Date
+     
       const dob = new Date(userData.dob);
-      // Вычисляем возраст пользователя
+      
       let age = currentDate.getFullYear() - dob.getFullYear();
-      // Проверяем, если пользователь еще не праздновал свой день рождения в этом году
+   
       if (
         currentDate.getMonth() < dob.getMonth() ||
         (currentDate.getMonth() === dob.getMonth() &&
@@ -77,7 +76,7 @@
         age--;
       }
 
-      // Рассчитываем базовый метаболизм в покое (BMR)
+      
       let bmr;
       if (userData.gender === "male") {
         bmr = 66 + 13.7 * userData.weight + 5 * userData.height - 6.8 * age;
@@ -96,7 +95,7 @@
           2;
       }
 
-      // Умножаем BMR на коэффициент активности
+      
       let activityLevelFactor;
       switch (userData.lifestyle) {
         case "sedentary":
@@ -116,19 +115,19 @@
           break;
       }
 
-      // Рассчитываем общее количество калорий
+      
       const totalCalories = Math.round(bmr * activityLevelFactor);
 
-      // Возвращаем результат
+      
       return totalCalories;
     }
     userData.totalCalories = countCalories(userData);
 
-    // Показываем сообщение с количеством калорий
+    
     const mealPlanMessage = document.getElementById("mealPlanMessage");
     mealPlanMessage.classList.remove("hidden");
 
-    // Выводим количество калорий в сообщении
+   
     const caloriesCount = document.getElementById("caloriesCount");
     caloriesCount.textContent = countCalories(userData).toString();
     localStorage.setItem("userData", JSON.stringify(userData));
@@ -137,9 +136,6 @@
     userDataStore.set(userData);
   }
 
-  // Назначаем обработчик события submit для формы
-
-  // Назначаем обработчик события click для кнопки "Go to meal plan"
 </script>
 
 <main class="bg-mainBeige">
