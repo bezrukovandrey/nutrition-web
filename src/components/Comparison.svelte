@@ -130,9 +130,9 @@
       legend: "none",
 
       slices: {
-        0: { color: "rgb(39,103,85)" }, // Цвет сектора для Protein
-        1: { color: "rgb(83,165,174)" }, // Цвет сектора для Carbs
-        2: { color: "rgb(17,26,20)" }, // Цвет сектора для Fat
+        0: { color: "rgb(39,103,85)" }, 
+        1: { color: "rgb(83,165,174)" }, 
+        2: { color: "rgb(17,26,20)" }, 
       },
       backgroundColor: "rgb(228,224,210)",
       pieSliceText: "percentage",
@@ -801,7 +801,6 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
                     {#if $viewMode === "percent"}
                       <div
                         class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
