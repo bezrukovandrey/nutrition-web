@@ -7,7 +7,7 @@
   let userData;
   let mealPlanData = writable(null);
 
-  // Получаем данные userData из стора при загрузке страницы
+  
   onMount(() => {
     userDataStore.subscribe((value) => {
       userData = value;
@@ -309,7 +309,7 @@
           {/each}
         </div>
       </section>
-      <!-- Добавляем ключевые пищевые факты для каждого дня -->
+      
       <div
         class="flex flex-col font-bitter mt-16 justify-center px-16 bg-mainBeige max-md:px-4"
       >
