@@ -4,10 +4,18 @@
   import { onMount } from "svelte";
   import { writable } from "svelte/store";
   import { toast } from '@zerodevx/svelte-toast'
+  import Spinner from "svelte-spinner";
+
+  let imageLoaded = false;
   let userData;
   let mealPlanData = writable(null);
+  
+  function handleImageLoad() {
+    imageLoaded = true;
+  }
+  
 
-  // Получаем данные userData из стора при загрузке страницы
+  
   onMount(() => {
     userDataStore.subscribe((value) => {
       userData = value;
@@ -36,13 +44,24 @@
 </script>
 
 <main class="flex flex-col justify-center text-white">
+  {#if !imageLoaded}
+    <div class="absolute inset-0 flex items-center justify-center bg-mainGray">
+      <Spinner
+        size="50"
+        color="#F5F5DC"
+        speed="1"
+        class="opacity-75"
+      />
+    </div>
+  {/if}
   <section
     class="relative flex flex-col justify-center items-start px-16 py-20 w-full min-h-[720px] max-md:max-w-full"
   >
     <img
-      src="src\assets\images\poster_meal.png"
+      src="/poster_meal.png"
       alt="Meal planner poster"
       class="object-cover object-left absolute inset-0 w-full h-full"
+      on:load={handleImageLoad}
     />
     <article
       class="relative flex flex-col mx-4 mb-10 gap-10 sm:ml-16 max-w-full sm:w-2/3 md:w-1/2 lg:w-1/3 text-center sm:text-left"
@@ -103,7 +122,7 @@
               <img
                 src="https://img.spoonacular.com/recipes/{meal.id}-636x393.{meal.imageType}"
                 alt={meal.title}
-                class="w-full aspect-square"
+                class="w-full aspect-square border-2 border border-darkGreen"
               />
               <h3
                 class="text-m h-16 sm:text-l font-semibold text-center line-clamp-2"
@@ -115,7 +134,7 @@
               ></div>
               <span class=" flex flex-row"
                 ><img
-                  src="src\assets\icons\clock.svg"
+                  src="/clock.svg"
                   alt="Duration icon"
                   class="w-6 aspect-square mr-2"
                 />
@@ -125,7 +144,7 @@
               >
               <span class="flex flex-row"
                 ><img
-                  src="src\assets\icons\tableware.svg"
+                  src="/tableware.svg"
                   alt="Servings icon"
                   class="w-6 aspect-square mr-2"
                 />
@@ -268,7 +287,7 @@
                     loading="lazy"
                     src="https://img.spoonacular.com/recipes/{meal.id}-636x393.{meal.imageType}"
                     alt={meal.title}
-                    class="w-full aspect-square"
+                    class="w-full aspect-square border-2 border border-darkGreen"
                   />
                   <h3
                     class="text-m h-16 sm:text-l font-semibold text-center line-clamp-2"
@@ -280,7 +299,7 @@
                   ></div>
                   <span class=" flex flex-row"
                     ><img
-                      src="src\assets\icons\clock.svg"
+                      src="/clock.svg"
                       alt="Duration icon"
                       class="w-6 aspect-square mr-2"
                     />
@@ -290,7 +309,7 @@
                   >
                   <span class="flex flex-row"
                     ><img
-                      src="src\assets\icons\tableware.svg"
+                      src="/tableware.svg"
                       alt="Servings icon"
                       class="w-6 aspect-square mr-2"
                     />
@@ -301,7 +320,7 @@
                   <button
                     class="self-center px-6 py-3 text-sm sm:text-m bg-darkGreen hover:bg-mainGreen border border-darkGreen border-solid text-white cursor-pointer"
                   >
-                    <a href={meal.sourceUrl}>Details</a>
+                    <a href='meal/{meal.id}'>Details</a>
                   </button>
                 </div>
               </div>
@@ -309,7 +328,7 @@
           {/each}
         </div>
       </section>
-      <!-- Добавляем ключевые пищевые факты для каждого дня -->
+      
       <div
         class="flex flex-col font-bitter mt-16 justify-center px-16 bg-mainBeige max-md:px-4"
       >

@@ -2,8 +2,9 @@
   import Navbar from "../components/Navbar.svelte";
   import Footer from "../components/Footer.svelte";
   import "../app.css";
-  export let title = "wisenourish";
   import { SvelteToast } from '@zerodevx/svelte-toast'
+
+  export let title = "wisenourish";
 </script>
 
 <div>

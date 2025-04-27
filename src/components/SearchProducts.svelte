@@ -71,21 +71,27 @@
     sort,
     sortDirection
   ) {
-    // Формируем URL для запроса
+    
     const intolerancesString =
       intolerances.length > 0 ? intolerances.join(",") : "";
 
     const url = `${baseUrl}/food/ingredients/search?number=100&query=${query}&minProteinPercent=${minProteinPercent}&maxProteinPercent=${maxProteinPercent}&minFatPercent=${minFatPercent}&maxFatPercent=${maxFatPercent}&minCarbsPercent=${minCarbsPercent}&maxCarbsPercent=${maxCarbsPercent}&intolerances=${intolerancesString}&sort=${sort}&sortDirection=${sortDirection}&apiKey=${apiKey}`;
 
     try {
-      // Выполняем запрос
+      if ((minProteinPercent + minFatPercent + minCarbsPercent) > 100 | (maxProteinPercent + maxFatPercent + maxCarbsPercent) < 100) {
+        alert(
+          "Incorrect search parameters (protein, carbs, fat percentage range)"
+        );
+        return;
+      }
       const response = await fetch(url);
       const data = await response.json();
-      // Обрабатываем полученные данные
+     
       searchResultsData.set(data);
+      showModal = false;
       const event = new CustomEvent("searchResultsUpdated", { detail: data });
       window.dispatchEvent(event);
-      console.log(data); // Выводим данные в консоль (можете изменить на свою обработку)
+      console.log(data); 
       console.log("url:", url);
       if (data.results.length === 0) {
         alert(
@@ -104,9 +110,9 @@
 >
   <section class="sm:max-w-full">
     <div
-      class="flex gap-4 flex-col sm:flex-row sm:gap-0 sm:mx-16 items-center relative"
+      class="flex gap-4 my-12 flex-col sm:flex-row sm:gap-0 sm:mx-16 items-center relative"
     >
-      <!-- Добавлен класс "relative" -->
+      
       <article class="flex flex-col w-full sm:w-1/2 sm:ml-0">
         <header
           class="flex flex-col grow text-black sm:max-w-full text-center sm:text-left"
@@ -137,7 +143,7 @@
               on:click={toggleModal}
             >
               <img
-                src="../src/assets/icons/filter.svg"
+                src="/filter.svg"
                 alt="Filter icon"
                 class="w-6 h-6 mr-4"
               />
@@ -146,7 +152,7 @@
               class="modal"
               style={showModal ? "display: block" : "display: none"}
             >
-              <!-- Изменено стилирование для модального окна -->
+              
               <div
                 class="modal-content absolute left-0 top-full w-full bg-white text-darkGreen px-4 py-4 border min-w-[120px] border-black border-solid font-opensans text-xs sm:text-s"
               >
@@ -194,12 +200,12 @@
                     on:click={toggleSortDirection}
                   >
                     <img
-                      src="../src/assets/icons/sort_up.svg"
+                      src="/sort_up.svg"
                       alt="Increasing sort icon"
                       class:active-arrow={searchData.sortDirection === "asc"}
                     />
                     <img
-                      src="../src/assets/icons/sort_down.svg"
+                      src="/sort_down.svg"
                       alt="Decreasing sort icon"
                       class:active-arrow={searchData.sortDirection === "desc"}
                     />
@@ -209,11 +215,11 @@
                 <div id="proteinRange" class="mb-4 mx-4 mt-12"></div>
                 <div class="mb-4">Fat percentage</div>
                 <div id="fatRange" class="mb-4 mx-4 mt-12">
-                  <!-- Добавьте сюда ползунок для белка -->
+                 
                 </div>
                 <div class="mb-4">Carbs percentage</div>
                 <div id="carbsRange" class="mb-4 mx-4 mt-12">
-                  <!-- Добавьте сюда ползунок для белка -->
+                
                 </div>
               </div>
             </div>
@@ -245,6 +251,6 @@
 
 <style>
   .active-arrow {
-    border: 2px solid black; /* Черная рамка для активной стрелки */
+    border: 2px solid black; 
   }
 </style>

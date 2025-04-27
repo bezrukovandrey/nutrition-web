@@ -4,9 +4,17 @@
   import { goto } from "$app/navigation";
   import db from "../quiz.json";
   import { quizResults } from "../store.js";
+  import Spinner from "svelte-spinner";
+  
 
   let restartIcon;
   let correctAnswersCount = 0;
+  let imageLoaded = false;
+  
+  function handleImageLoad() {
+    imageLoaded = true;
+  }
+  
   export let quizId;
 
   score.subscribe((value) => {
@@ -43,13 +51,24 @@
 </script>
 
 <main class="flex flex-col justify-center">
+  {#if !imageLoaded}
+      <div class="absolute inset-0 flex items-center justify-center bg-mainGray">
+        <Spinner 
+          size="50" 
+          color="#F5F5DC"
+          speed="1" 
+          class="opacity-75"
+        />
+      </div>
+    {/if}
   <section
     class="relative flex flex-col justify-center items-start px-16 py-20 w-full min-h-[720px] max-md:max-w-full"
   >
     <img
-      src="../../src/assets/images/poster_results.png"
+      src="/poster_results.png"
       alt="Quiz results poster"
       class="object-cover object-left absolute inset-0 w-full h-full"
+      on:load={handleImageLoad}
     />
     <article
       class="relative flex flex-col mt-56 mx-4 mb-10 sm:ml-16 max-w-full sm:w-[360px] text-center sm:text-left"
@@ -77,7 +96,7 @@
         >
           Retake quiz
           <img
-            src="../../src/assets/icons/restart.svg"
+            src="/restart.svg"
             alt="Retake quiz"
             class="ml-2 w-6 aspect-square"
             id="restartIcon"

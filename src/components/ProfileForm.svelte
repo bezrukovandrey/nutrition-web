@@ -1,10 +1,18 @@
 <script>
-  // Обработчик события submit для формы
+  
   import { onMount } from "svelte";
   import { userDataStore } from "../store.js";
   import { goto } from "$app/navigation";
+  import Spinner from "svelte-spinner";
+  
+  
+  let productInputs = []; 
+  let imageLoaded = false;
+  
+  function handleImageLoad() {
+    imageLoaded = true;
+  }
 
-  let productInputs = []; // Массив для хранения полей ввода продуктов
 
   onMount(() => {
     const addProductButton = document.querySelector(".add-product-btn");
@@ -39,9 +47,9 @@
     });
   });
   function handleSubmit(event) {
-    event.preventDefault(); // Предотвращаем отправку формы по умолчанию
+    event.preventDefault(); 
 
-    // Получаем значения полей формы
+   
     const dob = document.getElementById("dob").value;
     const gender = document.getElementById("gender").value;
     const lifestyle = document.getElementById("lifestyle").value;
@@ -50,7 +58,7 @@
     const height = document.getElementById("height").value;
     const weight = document.getElementById("weight").value;
 
-    // Создаем объект с данными пользователя
+    
     const userData = {
       dob,
       gender,
@@ -62,13 +70,13 @@
     };
 
     function countCalories(userData) {
-      // Получаем текущую дату
+     
       const currentDate = new Date();
-      // Преобразуем введенную дату рождения в объект Date
+     
       const dob = new Date(userData.dob);
-      // Вычисляем возраст пользователя
+     
       let age = currentDate.getFullYear() - dob.getFullYear();
-      // Проверяем, если пользователь еще не праздновал свой день рождения в этом году
+      
       if (
         currentDate.getMonth() < dob.getMonth() ||
         (currentDate.getMonth() === dob.getMonth() &&
@@ -77,7 +85,7 @@
         age--;
       }
 
-      // Рассчитываем базовый метаболизм в покое (BMR)
+      
       let bmr;
       if (userData.gender === "male") {
         bmr = 66 + 13.7 * userData.weight + 5 * userData.height - 6.8 * age;
@@ -96,7 +104,7 @@
           2;
       }
 
-      // Умножаем BMR на коэффициент активности
+      
       let activityLevelFactor;
       switch (userData.lifestyle) {
         case "sedentary":
@@ -116,19 +124,19 @@
           break;
       }
 
-      // Рассчитываем общее количество калорий
+    
       const totalCalories = Math.round(bmr * activityLevelFactor);
 
-      // Возвращаем результат
+      
       return totalCalories;
     }
     userData.totalCalories = countCalories(userData);
 
-    // Показываем сообщение с количеством калорий
+   
     const mealPlanMessage = document.getElementById("mealPlanMessage");
     mealPlanMessage.classList.remove("hidden");
 
-    // Выводим количество калорий в сообщении
+  
     const caloriesCount = document.getElementById("caloriesCount");
     caloriesCount.textContent = countCalories(userData).toString();
     localStorage.setItem("userData", JSON.stringify(userData));
@@ -137,15 +145,25 @@
     userDataStore.set(userData);
   }
 
-  // Назначаем обработчик события submit для формы
+ 
 
-  // Назначаем обработчик события click для кнопки "Go to meal plan"
+ 
 </script>
 
 <main class="bg-mainBeige">
+  {#if !imageLoaded}
+  <div class="absolute inset-0 flex items-center justify-center bg-mainGray">
+    <Spinner 
+      size="50" 
+      color="#F5F5DC"
+      speed="1" 
+      class="opacity-75"
+    />
+  </div>
+    {/if}
   <div class="flex w-full max-md:flex-col max-md:items-center">
     <section
-      class="w-full py-10 flex flex-col max-md:px-10 items-center justify-center"
+      class="w-full py-10 flex flex-col max-md:px-10 items-center"
     >
       <header class="text-center mb-6">
         <h1 class="text-xl sm:text-xxl font-bold leading-10 max-w-full">
@@ -252,7 +270,7 @@
           >
             <button type="button" class="add-product-btn">
               <img
-                src="src\assets\icons\plus.svg"
+                src="/plus.svg"
                 alt="Adding the product icon"
                 class="h-10 mr-2"
               />
@@ -291,7 +309,7 @@
         >
       </form>
       <div id="mealPlanMessage" class="hidden my-6 text-center max-w-[480px]">
-        <p class="font-opensans text-sm sm:text-m">
+        <p class=" text-sm sm:text-m">
           Your daily norm of calories is <span
             class="font-semibold"
             id="caloriesCount"
@@ -305,11 +323,13 @@
       </div>
     </section>
 
-    <aside class="w-full overflow-hidden">
+    <aside class="w-full max-lg:hidden overflow-hidden">
       <img
-        src="../src/assets/images/poster_profile.jpeg"
+        src="/poster_profile.jpeg"
         alt="User profile setup poster"
-        class="object-cover w-full h-full"
+        loading="lazy"
+        class="object-cover w-full h-[1200px]"
+        on:load={handleImageLoad}
       />
     </aside>
   </div>

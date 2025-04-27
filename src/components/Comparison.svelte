@@ -4,17 +4,15 @@
   import { onMount, onDestroy } from "svelte";
   import { writable } from "svelte/store";
   import { goto } from "$app/navigation";
-
   import { selectedMeals, userDataStore } from "../store.js";
 
 
   let meals = [];
-
   let mealInfo1 = writable({});
   let mealInfo2 = writable({});
 
-  // Создаем переменную состояния для отслеживания текущего режима отображения
-  const viewMode = writable("percent"); // Изначально отображаем проценты
+  
+  const viewMode = writable("percent"); 
   const userData = $userDataStore;
   const ratio = userData && typeof userData.totalCalories === 'number' && userData.totalCalories !== 0 ? userData.totalCalories / 2000 : 1;
 
@@ -28,7 +26,6 @@
   let barChart2;
   let initialized = false;
 
-  // Sample data for protein, carbs, and fat
 
   const barChartData1 = [
     ["Nutrient", "Percentage", { role: "style" }],
@@ -48,16 +45,16 @@
     barChartData1[2][1] = parseFloat($mealInfo1.carbsOfDailyNeeds.toFixed(0));
     barChartData1[3][1] = parseFloat($mealInfo1.fatOfDailyNeeds.toFixed(0));
 
-    drawBarChart1(); // Перерисовка первой столбчатой диаграммы
+    drawBarChart1(); 
   }
 
-  // Функция для обновления данных второй столбчатой диаграммы
+  
   function updateBarChartData2() {
     barChartData2[1][1] = parseFloat($mealInfo2.proteinOfDailyNeeds.toFixed(0));
     barChartData2[2][1] = parseFloat($mealInfo2.carbsOfDailyNeeds.toFixed(0));
     barChartData2[3][1] = parseFloat($mealInfo2.fatOfDailyNeeds.toFixed(0));
 
-    drawBarChart2(); // Перерисовка второй столбчатой диаграммы
+    drawBarChart2(); 
   }
   const drawPieChart1 = () => {
     let data = new google.visualization.DataTable();
@@ -82,9 +79,9 @@
       legend: "none",
 
       slices: {
-        0: { color: "rgb(39,103,85)" }, // Цвет сектора для Protein
-        1: { color: "rgb(83,165,174)" }, // Цвет сектора для Carbs
-        2: { color: "rgb(17,26,20)" }, // Цвет сектора для Fat
+        0: { color: "rgb(39,103,85)" }, 
+        1: { color: "rgb(83,165,174)" }, 
+        2: { color: "rgb(17,26,20)" }, 
       },
       backgroundColor: "rgb(228,224,210)",
       pieSliceText: "percentage",
@@ -130,9 +127,9 @@
       legend: "none",
 
       slices: {
-        0: { color: "rgb(39,103,85)" }, // Цвет сектора для Protein
-        1: { color: "rgb(83,165,174)" }, // Цвет сектора для Carbs
-        2: { color: "rgb(17,26,20)" }, // Цвет сектора для Fat
+        0: { color: "rgb(39,103,85)" }, 
+        1: { color: "rgb(83,165,174)" }, 
+        2: { color: "rgb(17,26,20)" }, 
       },
       backgroundColor: "rgb(228,224,210)",
       pieSliceText: "percentage",
@@ -175,7 +172,7 @@
         trigger: "hover",
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
           bold: true,
         },
       },
@@ -185,13 +182,13 @@
         minValue: 0,
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
         },
       },
       hAxis: {
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
           bold: true,
         },
       },
@@ -221,7 +218,7 @@
         trigger: "hover",
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
           bold: true,
         },
       },
@@ -231,13 +228,13 @@
         minValue: 0,
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
         },
       },
       hAxis: {
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
           bold: true,
         },
       },
@@ -261,9 +258,7 @@
   };
 
   function goBack() {
-    // Очистить состояние selectedMeals перед переходом на другую страницу
     selectedMeals.set([]);
-    // Перейти на другую страницу
     goto("/search/meals");
   }
 
@@ -467,7 +462,7 @@
         <img
           src="https://img.spoonacular.com/recipes/{$mealInfo1.id}-636x393.{$mealInfo1.imageType}"
           alt="{$mealInfo1.title} image"
-          class="w-4/5 sm:w-1/2 mt-8 max-md:max-w-full self-center aspect-square"
+          class="w-4/5 sm:w-1/2 mt-8 max-md:max-w-full self-center aspect-square border-2 border border-darkGreen"
         />
       </div>
       <div class="flex flex-col lg:w-full items-center max-md:w-full">
@@ -550,7 +545,7 @@
         <img
           src="https://img.spoonacular.com/recipes/{$mealInfo2.id}-636x393.{$mealInfo2.imageType}"
           alt="{$mealInfo2.title} image"
-          class="w-4/5 sm:w-1/2 mt-8 max-md:max-w-full self-center aspect-square"
+          class="w-4/5 sm:w-1/2 mt-8 max-md:max-w-full self-center aspect-square border-2 border border-darkGreen"
         />
       </div>
       <div class="flex flex-col items-center lg:w-full max-md:w-full">

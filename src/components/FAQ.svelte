@@ -63,13 +63,13 @@
       <p class="text-sm flex-1 my-auto max-md:max-w-full">
         {question}
       </p>
-      <button class="arrow-btn rotate" on:click={() => toggleAnswer(id)}>
+      <button class="arrow-btn" on:click={() => toggleAnswer(id)}>
         <img
-          src="src/assets/icons/arrow_up.svg"
-          alt="Expand/Collapse"
-          class="shrink-0 w-8 aspect-square"
-          id={`arrow-${id}`}
-        />
+        src="/arrow_up.svg"
+        alt="Expand/Collapse"
+        class="shrink-0 w-8 aspect-square rotate"
+        id={`arrow-${id}`}
+      />
       </button>
     </section>
     <div {id} class="hidden mb-5 w-[768px] max-w-full">
@@ -107,4 +107,5 @@
   .rotate {
     transform: rotate(180deg);
   }
+  
 </style>

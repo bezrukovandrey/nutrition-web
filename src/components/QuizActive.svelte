@@ -1,13 +1,16 @@
 <script>
   import { onMount } from "svelte";
-  import { score, updateScore } from "../store.js";
+  import { updateScore } from "../store.js";
   import { goto } from "$app/navigation";
   import quizData from "../quiz.json";
+  import Spinner from "svelte-spinner";
+  
 
   export let quizId;
   let selectedAnswer = null;
   let userAnswers = [];
   let showResultsButton = false;
+  let quizCompleted = false; 
 
   let currentQuestionIndex = (quizId - 1) * 10;
   let maxQuestionIndex = currentQuestionIndex + 10;
@@ -15,17 +18,23 @@
     currentQuestionIndex,
     maxQuestionIndex
   );
+  let imageLoaded = false;
+  
+  function handleImageLoad() {
+    imageLoaded = true;
+  }
 
   function checkAnswer() {
     if (selectedAnswer !== null) {
       userAnswers.push(selectedAnswer);
 
       selectedAnswer = null;
-      // Проверяем, что есть еще вопросы для текущего quizId
+      
       if (currentQuestionIndex + 1 < maxQuestionIndex) {
-        currentQuestionIndex++; // Переходим к следующему вопросу
+        currentQuestionIndex++; 
       } else {
         showResultsButton = true;
+        quizCompleted = true;
       }
     } else {
       alert("Please select an answer before moving to the next question.");
@@ -35,34 +44,34 @@
   function showResults() {
     let correctAnswersCount = 0;
 
-    // Проходим по каждому вопросу в структуре JSON
+   
     questions.forEach((question) => {
-      // Получаем правильный ответ для текущего вопроса
+     
       const correctAnswer = question.answer;
 
-      // Получаем индекс текущего вопроса в массиве userAnswers
+      
       const questionIndex = questions.indexOf(question);
 
-      // Получаем выбранный пользователем ответ для текущего вопроса
+      
       const userAnswer = userAnswers[questionIndex];
 
-      // Сравниваем выбранный пользователем ответ с правильным ответом
+      
       if (userAnswer === correctAnswer) {
-        // Если ответы совпадают, увеличиваем счетчик правильных ответов
+       
         correctAnswersCount++;
       }
       console.log(correctAnswersCount);
     });
 
-    // Обновляем счет пользователя с количеством правильных ответов
+    
     updateScore(correctAnswersCount);
     console.log(correctAnswersCount);
-    // Переходим на страницу с результатами
+    
     goto(`/quiz/${quizId}/results`);
   }
 
   onMount(() => {
-    // Инициализируем список вопросов при загрузке компонента
+    
     questions = quizData.quizQuestions.slice(
       currentQuestionIndex,
       maxQuestionIndex
@@ -71,6 +80,16 @@
 </script>
 
 <main class="bg-mainBlue">
+  {#if !imageLoaded}
+      <div class="absolute inset-0 flex items-center justify-center bg-mainGray">
+        <Spinner 
+          size="50" 
+          color="#F5F5DC"
+          speed="1" 
+          class="opacity-75"
+        />
+      </div>
+    {/if}
   <div class="flex w-full max-md:flex-col max-md:items-center">
     <main class="flex flex-col py-20 px-16 mx-auto w-full text-white w-1/2">
       <h1 class="w-full sm:text-l text-m text-center">
@@ -93,15 +112,23 @@
         >
           {#if quizData && quizData.quizQuestions && quizData.quizQuestions[currentQuestionIndex]}
             {#each quizData.quizQuestions[currentQuestionIndex].options as option}
-              <button
-                class="flex items-center bg-mainBeige justify-center px-6 py-3 sm:text-m leading-8 text-sm border border-darkGreen border-solid text-darkGreen hover:bg-darkGreen hover:text-white cursor-pointer"
-                on:click={() => {
-                  selectedAnswer = option;
-                  checkAnswer();
-                }}
-              >
-                {option}
-              </button>
+            <button
+            class="flex items-center justify-center px-6 py-3 sm:text-m leading-8 text-sm border border-darkGreen border-solid cursor-pointer
+              {quizCompleted
+                ? 'bg-gray-300 text-gray-500 border-gray-400 cursor-not-allowed'
+                : selectedAnswer === option
+                  ? 'bg-darkGreen text-white'
+                  : 'bg-mainBeige text-darkGreen hover:bg-darkGreen hover:text-white'}"
+            on:click={() => {
+              if (!quizCompleted) { 
+                selectedAnswer = option;
+                checkAnswer();
+              }
+            }}
+            disabled={quizCompleted}
+          >
+            {option}
+          </button>
             {/each}
           {:else}
             <p>No options available.</p>
@@ -120,9 +147,11 @@
 
     <aside class="w-full max-lg:hidden overflow-hidden">
       <img
-        src="../src/assets/images/poster_profile.jpeg"
+        src="/poster_profile.jpeg"
         alt="Active quiz poster"
         class="object-cover w-full h-full"
+        loading="lazy"
+        on:load={handleImageLoad}
       />
     </aside>
   </div>

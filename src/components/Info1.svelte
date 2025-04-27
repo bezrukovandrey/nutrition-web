@@ -16,7 +16,7 @@
       <article class="flex flex-col w-1/3 max-md:ml-0 max-md:w-full">
         <div class="flex flex-col grow text-center text-darkGreen max-md:mt-10">
           <img
-            src="src\assets\icons\search.svg"
+            src="/search.svg"
             alt="Explore icon"
             loading="lazy"
             class="self-center w-16 aspect-square"
@@ -35,7 +35,7 @@
       <article class="flex flex-col ml-4 w-1/3 max-md:ml-0 max-md:w-full">
         <div class="flex flex-col grow text-center text-darkGreen max-md:mt-10">
           <img
-            src="src\assets\icons\info.svg"
+            src="/info.svg"
             alt="Information icon"
             loading="lazy"
             class="self-center w-16 aspect-square"
@@ -54,7 +54,7 @@
       <article class="flex flex-col ml-4 w-1/3 max-md:ml-0 max-md:w-full">
         <div class="flex flex-col text-center text-darkGreen max-md:mt-10">
           <img
-            src="src\assets\icons\meal.svg"
+            src="/meal.svg"
             alt="Meal Plan icon"
             loading="lazy"
             class="self-center w-16 aspect-square"

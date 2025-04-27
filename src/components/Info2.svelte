@@ -5,7 +5,7 @@
     <div class="flex gap-6 max-lg:flex-col max-md:gap-0">
       <article class="flex flex-col w-1/2 max-md:ml-0 max-lg:w-full">
         <img
-          src="src\assets\images\poster_main2.png"
+          src="/poster_main2.webp"
           alt="Main page food poster"
           class="grow w-full aspect-square max-md:mt-10 max-md:max-w-full"
         />

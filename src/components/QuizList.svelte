@@ -2,20 +2,17 @@
   import { onMount } from "svelte";
   import { goto } from "$app/navigation";
   import { quizResults } from "../store.js";
-
-  // Получаем результаты квизов из глобального состояния
   import { get } from "svelte/store";
 
-  // Получаем результаты квизов из глобального состояния
   let results = get(quizResults);
 
-  // Обновляем результаты при монтировании компонента
+ 
   onMount(() => {
     results = get(quizResults);
     console.log(results);
   });
 
-  // Не забудьте отписаться от подписки при размонтировании компонента
+  
 </script>
 
 <main class="flex flex-col justify-center px-8 sm:px-16 py-20 bg-mainBeige">
@@ -57,7 +54,7 @@
   <section class="flex gap-6 mt-12 max-md:flex-col max-md:gap-0">
     <div class="flex flex-col w-1/2 max-md:ml-0 max-md:w-full">
       <img
-        src="/src/assets/images/poster_quizzes.png"
+        src="/poster_quizzes.png"
         alt="Quiz poster"
         class="grow self-stretch w-full max-md:mt-10 max-md:max-w-full object-cover"
       />
@@ -103,7 +100,7 @@
                   >
                     {results[quizId]}/10
                     <img
-                    src="../../src/assets/icons/done.svg"
+                    src="/done.svg"
                     alt="Finished quiz"
                     class="ml-2 w-6 aspect-square"
                   />

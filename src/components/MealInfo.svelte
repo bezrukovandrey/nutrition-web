@@ -15,13 +15,9 @@
 
   const userData = $userDataStore;
   const ratio = userData && typeof userData.totalCalories === 'number' && userData.totalCalories !== 0 ? userData.totalCalories / 2000 : 1;
-
+  const mealInfo = writable(null);
 
   let isRecipeOpen = false; 
-
- 
-
-  const mealInfo = writable(null);
 
   let instructions;
   let recipe;
@@ -143,22 +139,16 @@
     const requiredOtherNutrients = ["Caffeine", "Sugar", "Alcohol", "Fiber"];
 
     nutrients.forEach((nutrient) => {
-      // Проверяем, является ли текущий нутриент витамином
       if (requiredVitamins.includes(nutrient.name)) {
-        // Добавляем витамин в массив vitamins
         vitamins.push(nutrient);
       }
-      // Проверяем, является ли текущий нутриент минералом
       else if (requiredMinerals.includes(nutrient.name)) {
-        // Добавляем минерал в массив minerals
         minerals.push(nutrient);
       } else if (requiredOtherNutrients.includes(nutrient.name)) {
-        // Добавляем минерал в массив minerals
         otherNutrients.push(nutrient);
       }
     });
     vitamins.sort((a, b) => {
-      // Сравниваем имена витаминов
       if (a.name < b.name) {
         return -1;
       }
@@ -180,8 +170,7 @@
   }
 
   $: numberOfSelectedMeals = $selectedMeals.length;
-  // Создаем переменную состояния для отслеживания текущего режима отображения
-  const viewMode = writable("percent"); // Изначально отображаем проценты
+  const viewMode = writable("percent"); 
 
   let pieChartContainer;
   let barChartContainer;
@@ -189,7 +178,6 @@
   let barChart;
   let initialized = false;
 
-  // Sample data for proteinPercentage, carbsPercentage, and fatPercentage
 
   const drawPieChart = () => {
     let data = new google.visualization.DataTable();
@@ -259,7 +247,7 @@
         trigger: "hover",
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
           bold: true,
         },
       },
@@ -269,13 +257,13 @@
         minValue: 0,
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14, 
         },
       },
       hAxis: {
         textStyle: {
           fontName: "Bitter",
-          fontSize: 14, // Размер шрифта подсказки
+          fontSize: 14,
           bold: true,
         },
       },
@@ -327,14 +315,12 @@
       (meal) => meal.id === $mealInfo.id
     );
 
-    // Если блюдо уже в избранном, ничего не делаем
     if (isAlreadyInFavorites) {
       toast.push('Meal is already in favorites!', {
       theme: { '--toastBackground': '#D52A25', '--toastColor': '#FFF' }
     });
       return;
     }
-    // Добавление блюда в глобальное хранилище избранных блюд
     favoriteMeals.update((meals) => {
       return [...meals, $mealInfo];
     });
@@ -375,7 +361,7 @@
           loading="lazy"
           src="https://img.spoonacular.com/recipes/{$mealInfo.id}-636x393.{$mealInfo.imageType}"
           alt="Meal"
-          class="w-full mt-8 mx-16 max-lg:max-w-full"
+          class="w-full mt-8 mx-16 max-lg:max-w-full border-2 border border-darkGreen"
         />
       </div>
       <div class="flex flex-col lg:ml-6 w-1/2 max-lg:w-full max-lg:px-8">
@@ -430,7 +416,7 @@
                   Health Score
                 </div>
                 <img
-                  src="..\src\assets\icons\info.svg"
+                  src="/info.svg"
                   alt="Info icon"
                   class="w-6 aspect-square ml-2 mt-2 icon"
                   title="Score % (between 0 and 100) = Average coverage of good nutrients - Average coverage of bad nutrients. That is, the more of your daily requirements of vitamins and minerals are covered and lower amounts of things you should limit (sugar, salt etc.) the higher the score."
@@ -474,7 +460,7 @@
         >
           <span>Add to comparison</span>
           <img
-            src="..\src\assets\icons\scales.svg"
+            src="/scales.svg"
             alt="Comparison icon"
             class="ml-2 w-6 aspect-square invert"
           />
@@ -492,7 +478,7 @@
       >
         <span>Add to favorites</span>
         <img
-          src="..\src\assets\icons\love.svg"
+          src="/love.svg"
           alt="Favorites icon"
           class="ml-2 w-6 aspect-square invert"
         />
@@ -617,7 +603,7 @@
                 <div
                   class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                 >
-                  <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                 
                   {#if $viewMode === "percent"}
                     <div
                       class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
@@ -659,7 +645,7 @@
                 <div
                   class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                 >
-                  <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                 
                   {#if $viewMode === "percent"}
                     <div
                       class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
@@ -701,7 +687,7 @@
                 <div
                   class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                 >
-                  <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                  
                   {#if $viewMode === "percent"}
                     <div class="text-xl sm:text-xxl leading-10 text-black">
                       {percentOfDailyNeeds.toFixed(0)}%
@@ -738,7 +724,7 @@
   }
 
   .chart-container {
-    z-index: 999; /* Установите значение z-index ниже, чем у модального окна */
-    /* Добавьте другие стили для графиков */
+    z-index: 999; 
+   
   }
 </style>
