@@ -19,7 +19,7 @@
   onMount(() => {
     userDataStore.subscribe((value) => {
       userData = value;
-      console.log(userData);
+     
     });
   });
 
@@ -38,7 +38,7 @@
       theme: { '--toastBackground': '#53A5AE', '--toastColor': '#FFF' }
     });
     } catch (error) {
-      console.error("Error:", error);
+     
     }
   }
 </script>

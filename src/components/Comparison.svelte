@@ -417,7 +417,6 @@
     initializeCharts();
     unsubscribeSelectedMeals = selectedMeals.subscribe((value) => {
       meals = value;
-      console.log("meals to compare", meals);
       if (meals.length >= 2) {
         mealInfo1.set(processData(meals[0]));
         mealInfo2.set(processData(meals[1]));
@@ -798,7 +797,7 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                    
                     {#if $viewMode === "percent"}
                       <div
                         class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
@@ -837,7 +836,7 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                    
                     {#if $viewMode === "percent"}
                       <div
                         class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
@@ -887,7 +886,7 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                    
                     {#if $viewMode === "percent"}
                       <div
                         class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
@@ -926,7 +925,7 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                    
                     {#if $viewMode === "percent"}
                       <div
                         class="text-xl sm:text-xxl leading-10 {percentOfDailyNeeds ===
@@ -976,7 +975,7 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                   
                     {#if $viewMode === "percent"}
                       <div class="text-xl sm:text-xxl leading-10 text-black">
                         {percentOfDailyNeeds.toFixed(0)}%
@@ -1006,7 +1005,7 @@
                   <div
                     class="flex flex-col items-start pl-4 sm:pl-8 border-l-2 border-solid border-l-black"
                   >
-                    <!-- В зависимости от режима просмотра выводим проценты или абсолютные значения -->
+                  
                     {#if $viewMode === "percent"}
                       <div class="text-xl sm:text-xxl leading-10 text-black">
                         {percentOfDailyNeeds.toFixed(0)}%

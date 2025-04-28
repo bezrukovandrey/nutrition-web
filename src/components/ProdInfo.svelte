@@ -54,8 +54,7 @@
     const response = await fetch(url);
     const data = await response.json();
     productInfo.set(data);
-    console.log("URL HERE", url);
-    console.log("PRODUCT INFO", data);
+    
 
     nutritionScore = parseFloat(
       data.nutrition.properties.find(
@@ -157,8 +156,6 @@
       }
       return 0;
     });
-    console.log("Vitamins:", vitamins);
-    console.log("Minerals:", minerals);
     drawPieChart();
     drawBarChart();
 

@@ -91,15 +91,14 @@
       showModal = false;
       const event = new CustomEvent("searchResultsUpdated", { detail: data });
       window.dispatchEvent(event);
-      console.log(data); 
-      console.log("url:", url);
+      
       if (data.results.length === 0) {
         alert(
           "Unfortunately, the product was not found. Try different name or parameters!"
         );
       }
     } catch (error) {
-      console.error("Error:", error);
+      
       throw new Error("Failed to search products");
     }
   }

@@ -60,12 +60,11 @@
        
         correctAnswersCount++;
       }
-      console.log(correctAnswersCount);
+     
     });
 
     
     updateScore(correctAnswersCount);
-    console.log(correctAnswersCount);
     
     goto(`/quiz/${quizId}/results`);
   }

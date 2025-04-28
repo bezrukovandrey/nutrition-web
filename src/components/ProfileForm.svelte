@@ -140,8 +140,7 @@
     const caloriesCount = document.getElementById("caloriesCount");
     caloriesCount.textContent = countCalories(userData).toString();
     localStorage.setItem("userData", JSON.stringify(userData));
-    console.log(userData);
-    console.log('calories', userData.totalCalories);
+    
     userDataStore.set(userData);
   }
 

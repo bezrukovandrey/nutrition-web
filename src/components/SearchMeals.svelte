@@ -103,7 +103,6 @@
         );
       }
     } catch (error) {
-      console.error("Error:", error);
       throw new Error("Failed to search meals");
     }
   }

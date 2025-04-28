@@ -100,8 +100,7 @@ const removeFromFavoriteProducts = (id) => {
 
   
   onMount(() => {
-    console.log("favorite meals", favoriteMealsData);
-    console.log("favorite products", favoriteProductsData);
+    
     
     function handleArrowKeysMeals(event) {
       if (event.key === "ArrowLeft") {

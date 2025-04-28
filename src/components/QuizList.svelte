@@ -9,7 +9,7 @@
  
   onMount(() => {
     results = get(quizResults);
-    console.log(results);
+    
   });
 
   

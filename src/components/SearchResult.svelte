@@ -49,7 +49,7 @@
     window.addEventListener("keydown", handleArrowKeys);
     window.addEventListener("searchResultsUpdated", (event) => {
       const searchData = event.detail;
-      console.log("here", searchData);
+     
       searchResults = searchData.results.map((result) => ({
         id: result.id,
         title: result.title,

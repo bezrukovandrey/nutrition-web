@@ -36,7 +36,6 @@
     quizButton.addEventListener("mouseleave", function () {
       restartIcon.style.filter = "none";
     });
-    console.log("quiz id is", quizId);
   });
   const currentQuestionIndex = (quizId - 1) * 10;
   const maxQuestionIndex = currentQuestionIndex + 10;

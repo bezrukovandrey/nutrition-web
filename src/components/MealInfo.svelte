@@ -58,8 +58,7 @@
     const response = await fetch(url);
     const data = await response.json();
     mealInfo.set(data);
-    console.log("URL HERE", url);
-    console.log("MEAL INFO", data);
+    
 
     instructions = data.instructions;
     readyInMinutes = data.readyInMinutes;
@@ -157,8 +156,7 @@
       }
       return 0;
     });
-    console.log("Vitamins:", vitamins);
-    console.log("Minerals:", minerals);
+   
     drawPieChart();
     drawBarChart();
 
@@ -338,8 +336,7 @@
     const urlParams = new URLSearchParams(window.location.search);
 
     getmealInfo(mealId);
-    console.log('data', userData);
-    console.log('ratio', ratio);
+    
   });
 </script>
 

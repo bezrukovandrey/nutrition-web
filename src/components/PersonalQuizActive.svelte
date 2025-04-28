@@ -39,7 +39,7 @@
   }
 
   onMount(() => {
-    console.log(quizData);
+    
   });
 </script>
 
