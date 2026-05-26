@@ -70,7 +70,7 @@
 <header class="custom-gradient p-4">
   <nav class="flex h-8 gap-6 mx-2 sm:mx-12 justify-between items-center text-white">
     <a class="flex items-center gap-2" href="/" on:click|preventDefault={() => switchPage("/")}>
-      <div class="text-l font-libreBodoni">wisenourish</div>
+      <div class="text-l font-libreBodoni">eatbetter</div>
     </a>
     
    
