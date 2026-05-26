@@ -37,10 +37,10 @@
         YOU ARE WHAT YOU EAT.
       </h1>
       <p class="mt-6 text-sm sm:text-m font-opensans leading-6">
-        Discover the power of wisenourish today! wisenourish is your ultimate
+        Discover the power of eatbetter today! eatbetter is your ultimate
         nutrition companion, providing recipes, product information, and
         personalized meal plans. Take control of your health and well-being with
-        wisenourish.
+        eatbetter.
       </p>
     </article>
   </section>
