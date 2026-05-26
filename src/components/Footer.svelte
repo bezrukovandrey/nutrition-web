@@ -13,7 +13,7 @@
   <div
     class="flex flex-col items-center gap-6 mt-8 w-full text-xs md:flex-wrap md:max-w-full md:justify-between md:flex-row"
   >
-    <span class="md:text-center">© 2024 wisenourish. All rights reserved.</span
+    <span class="md:text-center">© 2026 eatbetter. All rights reserved.</span
     >
     <div
       class="flex flex-col items-center gap-6 md:flex-row md:justify-between"
