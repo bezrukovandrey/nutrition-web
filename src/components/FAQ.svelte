@@ -50,7 +50,7 @@
   </h2>
 
   <p class="mt-6 mb-12 text-sm text-center max-md:max-w-full">
-    Find answers to common questions about the wisenourish app and its features.
+    Find answers to common questions about the eatbetter app and its features.
   </p>
 
   {#each questions as { id, question, answer }}
