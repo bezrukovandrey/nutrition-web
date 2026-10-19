@@ -30,7 +30,6 @@ The application enables users to:
 
 ## Project Links
 
-- GitHub: https://github.com/bezrukovandrey/nutrition-web
 - Live demo: https://wisenourish.vercel.app/
 
 ## Getting Started
