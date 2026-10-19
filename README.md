@@ -1,38 +1,73 @@
-# create-svelte
+# WiseNourish
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+WiseNourish is a client-side web application designed to support users in managing their nutritional intake and dietary habits. It was developed as the practical part of a bachelor's thesis and focuses on helping users track food choices, compare nutritional values, plan meals for a day or a week, and learn more about healthy eating through interactive quizzes.
 
-## Creating a project
+## Overview
 
-If you're seeing this, you've probably already done this step. Congrats!
+The application enables users to:
+
+- explore detailed information about products and dishes;
+- compare nutritional values between different food items;
+- create personalized dietary plans for a day or a week;
+- monitor nutrition-related goals and habits;
+- learn through a set of educational quizzes on nutrition and healthy living.
+
+## Key Features
+
+- Product and dish database with nutritional details
+- Nutritional comparison tools
+- Personalized meal planning
+- Daily and weekly diet planning support
+- Educational quiz section for user learning
+- User-friendly interface built with modern frontend tools
+
+## Tech Stack
+
+- Figma — UI/UX design
+- Svelte / SvelteKit — frontend framework
+- Tailwind CSS — styling
+- Spoonacular API — nutrition and food data
+
+## Project Links
+
+- GitHub: https://github.com/bezrukovandrey/nutrition-web
+- Live demo: https://wisenourish.vercel.app/
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 24.x or newer
+- npm
+
+### Installation
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+git clone https://github.com/bezrukovandrey/nutrition-web.git
+cd nutrition-web
+npm install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### Run locally
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+Then open the local URL shown in the terminal (typically `http://localhost:5173`).
 
-To create a production version of your app:
+### Production build
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+To preview the built app:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```bash
+npm run preview
+```
+
+## Notes
+
+This project was created as part of a bachelor's thesis and is intended as a practical solution for nutrition management and education in a web environment.
